@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+  <script src="/frontend/src/GenerateUrl.js"></script>
+  <script src="/frontend/src/SearchCode.js"></script>
+  <script src="/frontend/src/ViewCodeData.js"></script>
+
+  <title>Short URL Generator</title>
+</head>
+<body>
+<div id="main">
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Генератор коротких URL-адресов</h1>
+    <div class="col-lg-6 mx-auto pt-5">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button id="generateButton" type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#generateModal">
+          Generate URLs
+        </button>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#searchCodeModal">
+          Поиск
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="generateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="generateModalLabel">Результат генерации</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <div id="modalBodyGenerate">
+            <div id="loadingGenerate"></div>
+            <div id="resultGenerate"></div>
+          </div>
+          <input class="w-100 btn btn-lg btn-primary mt-4 mb-4" type="button" data-bs-dismiss="modal" value="Хорошо"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="searchCodeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Поиск</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <label for="code" class="form-label">Код</label>
+          <input type="text" class="form-control" id="code" placeholder="Пример: 12kuz8">
+          <div id="modalBodySearch">
+            <div id="loadingSearch"></div>
+            <div id="resultSearch"></div>
+          </div>
+          <input id="searchCodeButton" class="w-100 btn btn-lg btn-primary mt-4 mb-4" type="button" value="Найти"/>
+          <input style="display: none" id="viewCodeDataLink" type="button" class="w-100 btn btn-outline-secondary mt-4 mb-4" value="Подробнее"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-4 py-5 my-5 text-center" id="content">
+
+</div>
+</body>
+</html>
